@@ -56,7 +56,7 @@ class TransformerBlock(nn.Module):
 
         self.feed_forward = nn.Sequential(
             nn.Linear(embed_size, forward_expansion*embed_size),
-            nn.ReLu(),
+            nn.ReLU(),
             nn.Linear(forward_expansion*embed_size, embed_size)
         )
 
@@ -174,7 +174,7 @@ class Transformer(nn.Module):
         self.device = device
 
     def make_src_mask(self, src):
-        src_mask = (src != self.src_pad_idx).unsqueez(1).unsqueeze(2)
+        src_mask = (src != self.src_pad_idx).unsqueeze(1).unsqueeze(2)
         return src_mask.to(self.device)
 
 
